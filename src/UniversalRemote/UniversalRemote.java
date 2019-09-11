@@ -2,63 +2,41 @@ package UniversalRemote;
 
 public class UniversalRemote {
 
+
     // Klassevariabler
-    boolean tvOn; //true on - false off
-    byte tvVolume; // 0 til 50 arbitrær værdi
-    boolean lightsOn; //true on - false off
-    byte lightIntensity; //percentage 0 to 100%
-    boolean thermostatOn; //true on - false off
+    boolean isItOn; //true on - false off
+    byte volume; // 0 til 50 arbitrær værdi
+    byte intensity; //percentage 0 to 100%
 
     // Metoder
-    boolean tvStart() {
-        //Tænder TVet
-        return true;
+    public void setItOn(boolean itOn) {
+        isItOn = itOn;
     }
-    void tvStop() {
-        //Slukker TVet
-    }
+
 
      void changeVolumeUp() {
         //Ændrer lydstyrken
-        if (tvVolume > 0 && tvVolume < 50) {
-            tvVolume++;
+        if (volume >= 0 && volume <= 50) {
+            volume++;
         }
     }
 
     void changeVolumeDown() {
         //Ændrer lydstyrken
-        if (tvVolume > 0 && tvVolume < 50) {
-            tvVolume--;
+        if (volume >= 0 && volume <= 50) {
+            volume--;
         }
     }
 
-    boolean lightTurnOn() {
-        //Tænder lyset
-        return true;
-    }
-
-    void lightTurnOff() {
-        //Slukker lyset
-    }
-
-    void changeLightIntesityUp() {
-        if (lightIntensity < 0 && lightIntensity < 100) {
-            lightIntensity++;
+    void changeIntensityUp() {
+        if (intensity >= 0 && intensity <= 100) {
+            intensity++;
         }
     }
 
-    void changeLightIntesityDown() {
-        if (lightIntensity < 0 && lightIntensity < 100) {
-            lightIntensity--;
+    void changeIntensityDown() {
+        if (intensity >= 0 && intensity < 100) {
+            intensity--;
         }
-    }
-
-    boolean thermostatTurnOn() {
-        //Tænder thermostat
-        return true;
-    }
-
-    void thermostatTurnOff() {
-        //Slukker thermostat
     }
 }
