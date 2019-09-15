@@ -1,3 +1,5 @@
+package Practice;
+
 public class StringAdd {
     static String stringAdd(String a, String b) {
         return a + b;

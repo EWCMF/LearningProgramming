@@ -1,3 +1,5 @@
+package Practice;
+
 public class Tandboerste {
     static int antalBoerstehaar = 250;
     boolean erStartede;

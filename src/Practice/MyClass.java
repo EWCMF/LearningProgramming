@@ -1,3 +1,5 @@
+package Practice;
+
 // This prints the system message: 'Hello World'.
 class MyClass1 {
     public static void main(String[ ] args) {
