@@ -13,7 +13,7 @@ public class Opgave6 {
         String output = findMiddle(x, y ,z);
 
         if (output == "x er den mellemste værdi") {
-            System.out.println(output);
+            System.out.println(x);
             System.out.println("Pass");
         }
         else {
@@ -32,7 +32,7 @@ public class Opgave6 {
         output = findMiddle(x, y ,z);
 
         if (output == "y er den mellemste værdi") {
-            System.out.println(output);
+            System.out.println(y);
             System.out.println("Pass");
         }
         else {
@@ -42,16 +42,10 @@ public class Opgave6 {
     }
 
     static String findMiddle(int a, int b, int c) {
-        if (a > b && a < c)
+        if (a > b && a < c || a < b && a > c)
             return "x er den mellemste værdi";
-        else if (a < b && a > c)
-            return "x er den mellemste værdi";
-        else if (b > a && b < c)
+        else if (b > a && b < c || b < a && b > c)
             return "y er den mellemste værdi";
-        else if (b < a && b > c)
-            return "y er den mellemste værdi";
-        else if (c > a && c < b)
-            return "z er den mellemste værdi";
         else
             return "z er den mellemste værdi";
     }
