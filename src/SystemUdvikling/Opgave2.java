@@ -1,5 +1,7 @@
 package SystemUdvikling;
 
+// Kopieret af Anders
+
 public class Opgave2 {
     // Ved at placere programmet i en separat metode kan vi opnå fuldstændig separation af programkode og testkode.
 
