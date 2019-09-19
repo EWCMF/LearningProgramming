@@ -19,7 +19,7 @@ public class Exercise4 {
         // input: maaned = random
         // forventet output: output = passende måned * 20
 
-        for (int i = 0; i <= 20; i++) {
+        for (int i = 1; i <= 20; i++) {
             maaned = (int) (Math.random() * 12) + 1;
             output = hvadMaaned(maaned);
 
