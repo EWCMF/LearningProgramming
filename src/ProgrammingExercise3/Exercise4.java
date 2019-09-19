@@ -14,6 +14,20 @@ public class Exercise4 {
             System.out.println("Pass");
         else
             System.out.println("Fail");
+
+        // Test case random selection med 20 loops
+        // input: maaned = random
+        // forventet output: output = passende måned * 20
+
+        for (int i = 0; i <= 20; i++) {
+            maaned = (int) (Math.random() * 12) + 1;
+            output = hvadMaaned(maaned);
+
+            if (output >= 1 && output <= 12)
+                System.out.println("Pass");
+            else
+                System.out.println("Fail");
+        }
     }
 
     static int hvadMaaned(int maaned) {
