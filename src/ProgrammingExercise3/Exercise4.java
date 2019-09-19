@@ -24,9 +24,9 @@ public class Exercise4 {
             output = hvadMaaned(maaned);
 
             if (output >= 1 && output <= 12)
-                System.out.println("Pass");
+                System.out.println("Pass " + i);
             else
-                System.out.println("Fail");
+                System.out.println("Fail" + i);
         }
     }
 
