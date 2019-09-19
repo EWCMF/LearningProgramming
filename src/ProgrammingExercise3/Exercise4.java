@@ -6,7 +6,7 @@ public class Exercise4 {
         // input: maaned = random
         // forventet output: output = passende måned (f.eks. december)
 
-        int maaned = (int) (Math.random() * 10);
+        int maaned = (int) (Math.random() * 12) + 1;
 
         int output = hvadMaaned();
     }
