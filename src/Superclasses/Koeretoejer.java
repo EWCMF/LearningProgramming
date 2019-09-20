@@ -1,6 +1,7 @@
 package Superclasses;
 
-public class Koeretoejer {
+// abstract gør at man ikke kan instansier.
+public abstract class Koeretoejer {
     int antalHjul;
     String motor;
     double gennemsnitshastighed;
@@ -11,7 +12,7 @@ public class Koeretoejer {
     void stop() {
     }
 
-    void travel() {
-    }
+    // Metoder kan også være abstract.
+    abstract void travel();
 
 }
