@@ -12,6 +12,7 @@ public class Main {
         jensBil.antalVinduer = 4;
         jensBil.nummerplade = "Roadster";
 
+        jensBil.travel();
 
         Cykel hansCykel = new Cykel();
 
@@ -21,5 +22,7 @@ public class Main {
 
         hansCykel.cykelBremsetype = "Håndbremse";
         hansCykel.cykelstyrType = "Racerstyr";
+
+        hansCykel.travel();
     }
 }
