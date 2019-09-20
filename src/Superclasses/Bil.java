@@ -1,4 +1,4 @@
-package Subclasses;
+package Superclasses;
 
 public class Bil extends Koeretoejer {
     int antalVinduer;
