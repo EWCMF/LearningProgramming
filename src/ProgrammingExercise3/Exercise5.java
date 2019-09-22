@@ -18,7 +18,23 @@ public class Exercise5 {
         // Opsæt test med metode
         test(futureDay, 0);
 
+        // Testcase om dagen i fremtiden hvor 40 dage passerer fra onsdag
+        // Input: day = 3, daysPassing = 40
+        // forventet output: futureDay = 6
+
+        // Lav inputs
+        day = 1;
+        daysPassing = 6;
+
+        // Generer output
+        futureDay = findFutureDay(day, daysPassing);
+
+        // Opsæt test med metode
+        test(futureDay, 1);
+
     }
+
+
     static int findFutureDay(int day, int daysPassing) {
         Scanner scanner = new Scanner(System.in);
 
@@ -33,42 +49,35 @@ public class Exercise5 {
         System.out.print("Enter the number of days elasped since today: ");
         daysPassing = scanner.nextInt();
 
-        if (daysPassing < 0 || daysPassing > 6) {
+        if (daysPassing < 0) {
             System.out.println("Invalid input");
             return 10;
         }
 
-        int futureDay = 7 % daysPassing - day;
-        String printDay = "Error";
+        int futureDay = (daysPassing % 7 + day) % 7;
+
 
         switch (futureDay) {
             case 0:
-                printDay = "Sunday";
-                System.out.println("Today is " + numberToDay(day) + " and the future day is " + printDay);
+                System.out.println("Today is " + numberToDay(day) + " and the future day is " + numberToDay(futureDay));
                 return 0;
             case 1:
-                printDay = "Monday";
-                System.out.println("Today is " + numberToDay(day) + " and the future day is " + printDay);
+                System.out.println("Today is " + numberToDay(day) + " and the future day is " + numberToDay(futureDay));
                 return 1;
             case 2:
-                printDay = "Tuesday";
-                System.out.println("Today is " + numberToDay(day) + " and the future day is " + printDay);
+                System.out.println("Today is " + numberToDay(day) + " and the future day is " + numberToDay(futureDay));
                 return 2;
             case 3:
-                printDay = "Wednesday";
-                System.out.println("Today is " + numberToDay(day) + " and the future day is " + printDay);
+                System.out.println("Today is " + numberToDay(day) + " and the future day is " + numberToDay(futureDay));
                 return 3;
             case 4:
-                printDay = "Thursday";
-                System.out.println("Today is " + numberToDay(day) + " and the future day is " + printDay);
+                System.out.println("Today is " + numberToDay(day) + " and the future day is " + numberToDay(futureDay));
                 return 4;
             case 5:
-                printDay = "Friday";
-                System.out.println("Today is " + numberToDay(day) + " and the future day is " + printDay);
+                System.out.println("Today is " + numberToDay(day) + " and the future day is " + numberToDay(futureDay));
                 return 5;
             case 6:
-                printDay = "Saturday";
-                System.out.println("Today is " + numberToDay(day) + " and the future day is " + printDay);
+                System.out.println("Today is " + numberToDay(day) + " and the future day is " + numberToDay(futureDay));
                 return 6;
         }
         return 10;
