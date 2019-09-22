@@ -14,9 +14,9 @@ public class Exercise14 {
             return;
         }
 
-        double result = (int) (Math.random() * 100);
+        double result = Math.random();
 
-        if (result <= 50)
+        if (result <= 0.5)
             result = 0;
         else
             result = 1;
