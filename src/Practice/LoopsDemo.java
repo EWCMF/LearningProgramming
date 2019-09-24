@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class LoopsDemo {
     public static void main(String[] args) {
+
+        // i variablerne i for loops eksisterer kun inde i loopet.
         for (int i = 0; i <= 100; i++) {
             System.out.println(i);
         }
@@ -30,6 +32,7 @@ public class LoopsDemo {
             }
         }
 
+        // Conditions checkes først efter en udførelse.
         do {
             System.out.println("Noget hemmeligt");
         } while (false);
