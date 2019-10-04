@@ -13,11 +13,5 @@ public class Exercise5 {
             celcius += 2;
             fahrenheit +=5;
         }
-
-/** Alternatively use for loop
- for (int miles = 1; miles <= 10; miles++) {
- System.out.println(miles + "\t\t" + miles * 1.609);
- }
- */
     }
 }
