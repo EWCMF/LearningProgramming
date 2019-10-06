@@ -1,4 +1,4 @@
-package SystemUdvikling;
+package SelectionOpgaver;
 
 public class Opgave3 {
     public static void main(String[] args) {
