@@ -16,17 +16,24 @@ public class Opgave1 {
 
         // Generer output
         String output = skrivAdresse(skole, vej, by);
+
+        testOutput("Erhvervsakedemi SjællandFemøvej 34700 Næstved", output);
     }
 
     static void testOutput(String forventetOutput, String faktiskOutput) {
-        if (faktiskOutput == forventetOutput)
+        if (faktiskOutput.equalsIgnoreCase(forventetOutput))
             System.out.println("PASS");
         else
             System.out.println("FAIL");
     }
 
     static String skrivAdresse(String skole, String vej, String by) {
-        return "";
+        System.out.println(skole);
+        System.out.println(vej);
+        System.out.println(by);
+
+        System.out.println(skole + vej + by);
+        return skole + vej + by;
     }
 }
 
