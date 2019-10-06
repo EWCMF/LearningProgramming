@@ -18,6 +18,23 @@ public class Opgave1 {
         String output = skrivAdresse(skole, vej, by);
 
         testOutput("Erhvervsakedemi SjællandFemøvej 34700 Næstved", output);
+
+        // Test metode for addresse med roskilde EASJ
+        // input: skole = Erhvervsakedemi Sjælland, vej = Maglegårdsvej 2, by = 4000 Roskilde
+        // Forventet output:
+        //                   Erhvervsakedemi Sjælland
+        //                   Maglegårdsvej 2
+        //                   4000 Roskilde
+
+        // Opstil inputs
+        skole = "Erhvervsakedemi Sjælland";
+        vej = "Maglegårdsvej 2";
+        by = "4000 Roskilde";
+
+        // Generer output
+        output = skrivAdresse(skole, vej, by);
+
+        testOutput("Erhvervsakedemi SjællandMaglegårdsvej 24000 Roskilde", output);
     }
 
     static void testOutput(String forventetOutput, String faktiskOutput) {
@@ -32,7 +49,6 @@ public class Opgave1 {
         System.out.println(vej);
         System.out.println(by);
 
-        System.out.println(skole + vej + by);
         return skole + vej + by;
     }
 }
