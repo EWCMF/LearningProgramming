@@ -1,3 +1,4 @@
 # Project exclude paths
 /out/
 QuickProg.java
+/.idea/
