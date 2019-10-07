@@ -19,6 +19,21 @@ public class Opgave9 {
 
         testOutput(forventet1, output);
 
+        // Test 2 arrays med 3 og 2 elementer hvor første har: 3, 6 og 9 og anden har 7, 4
+        // Input: arrayFirst2 = {3, 6, 9}, arraySecond2 = {7, 4}
+        // Forventet output: output = {3, 6, 9}, arraySecond2 = {7, 4}
+
+        // Opstil input
+        int[] arrayFirst2 = {3, 6, 9};
+        int[] arraySecond2 = {7, 4};
+
+        //Generer output
+        output = add(arrayFirst2, arraySecond2);
+
+        int[] forventet2 = {3, 6, 9};
+
+        testOutput(forventet2, output);
+
     }
 
     static void testOutput(int[] forventetOutput, int[] faktiskOutput) {
@@ -29,6 +44,13 @@ public class Opgave9 {
     }
 
     static int[] add(int[] array1, int[] array2) {
+        if (array1.length != array2.length)
+            System.out.println("Arrays har ikke samme antal elementer");
+        else {
+            for (int i = 0; i < array1.length; i++) {
+                array1[i] = array1[i] + array2[i];
+            }
+        }
         return array1;
     }
 }
