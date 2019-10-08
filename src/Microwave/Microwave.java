@@ -11,13 +11,11 @@ public class Microwave {
 
         //Gør-ting dvs. metoder
     boolean start() {
-        // TODO: tænd en kontakt der starter mikroovnen
         System.out.println("Mikroovnen er startet");
         return true;
     }
 
     void stop() {
-        // TODO: Sluk kontakt der slukker mikroovnen
     }
 }
 
