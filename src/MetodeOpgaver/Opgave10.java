@@ -26,6 +26,12 @@ public class Opgave10 {
     }
 
     static int[] max(int[] a, int[] b) {
+
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] < b[i]) {
+                a[i] = b[i];
+            }
+        }
         return a;
     }
 }
