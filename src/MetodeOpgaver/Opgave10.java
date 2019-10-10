@@ -13,9 +13,23 @@ public class Opgave10 {
 
         int[] output = max(array1first, array1second);
 
-        int[] forventet = {5, 7, 99};
+        int[] forventet1 = {5, 7, 99};
 
-        testOutput(forventet, output);
+        testOutput(forventet1, output);
+
+
+        // test med 9 elementer hvor array 1 har: 3, 4, 7, 999, 201, 44, 9, 89, 90 og array 2 har: 10, 2, 8, 8, 300, 77, 10, 97, 66
+
+        // Forventet output: output = {10, 4, 8, 999, 300, 77, 10, 97, 90}
+
+        int[] array2first = {3, 4, 7, 999, 201, 44, 9, 89, 90};
+        int[] array2second = {10, 2, 8, 8, 300, 77, 10, 97, 66};
+
+        int[] forventet2 = {10, 4, 8, 999, 300, 77, 10, 97, 90};
+
+        output = max(array2first, array2second);
+
+        testOutput(forventet2, output);
     }
 
     static void testOutput(int[] forventetOutput, int[] faktiskOutput) {
@@ -30,6 +44,10 @@ public class Opgave10 {
         for (int i = 0; i < a.length; i++) {
             if (a[i] < b[i]) {
                 a[i] = b[i];
+                System.out.println(a[i]);
+            }
+            else {
+                System.out.println(a[i]);
             }
         }
         return a;
