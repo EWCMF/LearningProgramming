@@ -11,9 +11,9 @@ public class Opgave11 {
         int[] array1first = {3, 7, 89};
         int[] array1second = {5, 3, 99};
 
-        int[] output = swap(array1first, array1second);
+        int[][] output = swap(array1first, array1second);
 
-        int[] forventet1 = {5, 3, 99};
+        int[][] forventet1 = {{5, 3, 99}, {3, 7, 89}};
 
         testOutput(forventet1, output);
 
@@ -27,27 +27,24 @@ public class Opgave11 {
 
         output = swap(array2first, array2second);
 
-        int[] forventet2 = {10, 2, 8, 8, 300, 77, 10, 97, 66};
+        int[][] forventet2 = {{10, 2, 8, 8, 300, 77, 10, 97, 66}, {3, 4, 7, 999, 201, 44, 9, 89, 90}};
 
         testOutput(forventet2, output);
 
     }
 
-    static void testOutput(int[] forventetOutput, int[] faktiskOutput) {
-        if (Arrays.equals(forventetOutput, faktiskOutput))
+    static void testOutput(int[][] forventetOutput, int[][] faktiskOutput) {
+        if (Arrays.equals(forventetOutput[0], faktiskOutput[0]) && Arrays.equals(forventetOutput[1], faktiskOutput[1]))
             System.out.println("PASS");
         else
             System.out.println("FAIL");
     }
 
-    static int[] swap(int[] a, int[] b) {
+    static int[][] swap(int[] a, int[] b) {
         int[] temp = a;
         a = b;
         b = temp;
-        for (int i = 0; i < b.length; i++) {
-            System.out.println(b[i]);
-        }
 
-        return a;
+        return new int[][]{a, b};
     }
 }
