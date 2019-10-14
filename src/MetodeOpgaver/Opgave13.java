@@ -25,6 +25,12 @@ public class Opgave13 {
     }
 
     static boolean erDetPrimtal(int tal) {
-        return false;
+        if (tal % 2 == 0)
+            return false;
+        for(int i = 3; i * i <= tal; i += 2) {
+            if(tal % i == 0)
+                return false;
+        }
+        return true;
     }
 }
