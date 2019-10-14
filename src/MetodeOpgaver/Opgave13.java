@@ -15,6 +15,19 @@ public class Opgave13 {
         testOutput(true, output);
 
 
+        // Test med 9 som ikke er primtal.
+        // Input: input = 9
+        // Forventet output = false
+
+        // Opstil input
+        input = 9;
+
+        // Generer output
+        output = erDetPrimtal(input);
+
+        testOutput(false, output);
+
+
     }
 
     static void testOutput(boolean forventetOutput, boolean faktiskOutput) {
