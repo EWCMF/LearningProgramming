@@ -35,14 +35,26 @@ public class Opgave14 {
 
         // Løsning til D
 
+        output = add(div(9, 4), mod(8, 3));
+
+        testOutput(4, output);
+
+        // Løsning til E
+
+        output = add(div(9, 3), add(mod(9, 3), 12));
+
+        testOutput(15, output);
+
 
     }
 
     static void testOutput(int forventetOutput, int faktiskOutput) {
         if (forventetOutput == faktiskOutput)
             System.out.println("PASS");
-        else
+        else {
             System.out.println("FAIL");
+            System.out.println("Expected: " + forventetOutput + " Actual: " + faktiskOutput);
+        }
     }
 
     static int add(int a, int b) {
