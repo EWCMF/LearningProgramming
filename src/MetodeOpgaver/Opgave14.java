@@ -15,6 +15,26 @@ public class Opgave14 {
 
         testOutput(4, output);
 
+        // Løsning til A
+
+        output = add(mul(5, 10), 11);
+
+        testOutput(61, output);
+
+        // Løsning til B
+
+        output = sub(div(7, 3), mul(9, 5));
+
+        testOutput(-43, output);
+
+        // Løsning til C
+
+        output = mul(add(3, 9), 4);
+
+        testOutput(48, output);
+
+        // Løsning til D
+
 
     }
 
@@ -27,5 +47,21 @@ public class Opgave14 {
 
     static int add(int a, int b) {
         return a + b;
+    }
+
+    static int sub(int a, int b) {
+        return a - b;
+    }
+
+    static int mul(int a, int b) {
+        return a * b;
+    }
+
+    static int div(int a, int b) {
+        return a / b;
+    }
+
+    static int mod(int a, int b) {
+        return a % b;
     }
 }
