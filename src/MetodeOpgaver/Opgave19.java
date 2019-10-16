@@ -15,6 +15,21 @@ public class Opgave19 {
         boolean output = findesPar(array, firstNum, secondNum);
 
         testOutput(false, output);
+
+
+        // Test hvor par findes
+        // Input: array = {1, 2, 3, 4, 5}, firstNum = 2, secondNum = 3
+        // Forventet output: output = true
+
+        // Opstil input
+        array = new int[]{1, 2, 3, 4, 5};
+        firstNum = 2;
+        secondNum = 3;
+
+        // Generer output
+        output = findesPar(array, firstNum, secondNum);
+
+        testOutput(true, output);
     }
 
     static void testOutput(boolean forventetOutput, boolean faktiskOutput) {
@@ -27,6 +42,10 @@ public class Opgave19 {
     }
 
     static boolean findesPar(int[] array, int firstNum, int secondNum) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == firstNum && array[i + 1] == secondNum)
+                return true;
+        }
         return false;
     }
 }
