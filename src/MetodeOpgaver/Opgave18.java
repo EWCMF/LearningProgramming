@@ -1,5 +1,7 @@
 package MetodeOpgaver;
 
+import java.util.Arrays;
+
 public class Opgave18 {
     public static void main(String[] args) {
         // Test hvor fem erstatninger sker
@@ -19,10 +21,25 @@ public class Opgave18 {
         testOutput(expected, output);
 
 
+        // Test hvor alle tal er under grænsen
+        // Input: array = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}, limit = 2, value = 9
+        // Forventet output: array = {9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9}
+
+        // Opstil input
+        array = new int[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+        limit = 2;
+        value = 9;
+
+        // Generer output
+        output = erstatMindre(array, limit, value);
+
+        expected = new int[]{9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9};
+
+        testOutput(expected, output);
     }
 
     static void testOutput(int[] forventetOutput, int[] faktiskOutput) {
-        if (forventetOutput == faktiskOutput)
+        if (Arrays.equals(forventetOutput, faktiskOutput))
             System.out.println("PASS");
         else {
             System.out.println("FAIL");
@@ -38,6 +55,10 @@ public class Opgave18 {
     }
 
     static int[] erstatMindre(int[] array, int limit, int value) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] <= limit)
+                array[i] = value;
+        }
         return array;
     }
 
