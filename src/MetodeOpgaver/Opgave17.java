@@ -28,6 +28,10 @@ public class Opgave17 {
     }
 
     static boolean lige(int tal) {
+        if (tal % 2 == 0)
+            return true;
         return false;
     }
+
+
 }
