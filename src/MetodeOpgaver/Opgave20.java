@@ -26,6 +26,14 @@ public class Opgave20 {
     }
 
     static int hyppighed(int[] array, int tal) {
-        return 0;
+        int hyppighed = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == tal)
+                hyppighed++;
+        }
+        hyppighed = hyppighed * 100;
+        hyppighed = hyppighed / array.length;
+
+        return hyppighed;
     }
 }
