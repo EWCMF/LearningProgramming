@@ -31,7 +31,7 @@ public class Opgave17 {
         }
 
 
-        // Test for swapLigeUlige hvor et byt sker
+        // Test for swapLigeUlige hvor et byt sker og det første tal er lige
         // Input: array = {6, 7, 1, 8, 5}, firstIndex = 0, secondIndex = 1
         // Forventet output: array = {7, 6, 1, 8, 5}, output = true
 
@@ -39,6 +39,36 @@ public class Opgave17 {
         int[] array = {6, 7, 1, 8, 5};
         int firstIndex = 0;
         int secondIndex = 1;
+
+        // Generer output
+        output = swapLigeUlige(array, firstIndex, secondIndex);
+
+        testOutput(true, output);
+
+
+        // Test for swapLigeUlige hvor et byt ikke sker
+        // Input: array = {5, 6, 7, 12, 1}, firstIndex = 1, secondIndex = 3
+        // Forventet output: array = {5, 6, 7, 12, 1}, output = false
+
+        // Opstil input
+        array = new int[]{5, 6, 7, 12, 1};
+        firstIndex = 1;
+        secondIndex = 3;
+
+        // Generer output
+        output = swapLigeUlige(array, firstIndex, secondIndex);
+
+        testOutput(false, output);
+
+
+        // Test for swapLigeUlige hvor et byt sker og andet tal er lige
+        // Input: array = {5, 6, 7, 12, 1}, firstIndex = 0, secondIndex = 3
+        // Forventet output: array = {12, 6, 7, 5, 1}, output = true
+
+        // Opstil input
+        array = new int[]{5, 6, 7, 12, 1};
+        firstIndex = 0;
+        secondIndex = 3;
 
         // Generer output
         output = swapLigeUlige(array, firstIndex, secondIndex);
@@ -68,6 +98,15 @@ public class Opgave17 {
     }
 
     static boolean swapLigeUlige(int[] array, int first, int second) {
+        int[] temp = array.clone();
+        if (lige(array[first]) && ulige(array[second]) || ulige(array[first]) && lige(array[second])) {
+            array[first] = array[second];
+            array[second] = temp[first];
+            for (int i = 0; i < array.length; i++) {
+                System.out.print(array[i] + " ");
+            }
+            return true;
+        }
         return false;
     }
 }
