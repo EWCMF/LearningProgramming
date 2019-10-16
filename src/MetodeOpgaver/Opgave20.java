@@ -14,6 +14,19 @@ public class Opgave20 {
         int output = hyppighed(array, tal);
 
         testOutput(20, output);
+
+        // Test hyppighed hvor hyppigheden er 43% afrundet
+        // input: array = {5, 7, 1, 5, 5, 2, 6}, tal = 5
+        // forventet output: output = 43
+
+        // Opstil input
+        array = new int[]{5, 7, 1, 5, 5, 2, 6};
+        tal = 5;
+
+        // Generer output
+        output = hyppighed(array, tal);
+
+        testOutput(43, output);
     }
 
     static void testOutput(int forventetOutput, int faktiskOutput) {
@@ -26,7 +39,7 @@ public class Opgave20 {
     }
 
     static int hyppighed(int[] array, int tal) {
-        int hyppighed = 0;
+        double hyppighed = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] == tal)
                 hyppighed++;
@@ -34,6 +47,7 @@ public class Opgave20 {
         hyppighed = hyppighed * 100;
         hyppighed = hyppighed / array.length;
 
-        return hyppighed;
+
+        return (int) Math.round(hyppighed);
     }
 }
