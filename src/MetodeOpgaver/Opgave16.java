@@ -14,6 +14,19 @@ public class Opgave16 {
 
         testOutput(false, output);
 
+        // Test hvor eleven består
+        // Input: karakterer = {7, 7, 7, 7, 7, 7, 7, 7}
+        // Forventet output: output = true
+
+        // Opstil input
+        karakter = new int[]{7, 7, 7, 7, 7, 7, 7, 7};
+
+        // Generer output
+        output = bestaaet(karakter);
+
+
+        testOutput(true, output);
+
     }
 
     static void testOutput(boolean forventetOutput, boolean faktiskOutput) {
@@ -26,6 +39,24 @@ public class Opgave16 {
     }
 
     static boolean bestaaet(int[] karakter) {
-        return false;
+        for (int i = 0; i < karakter.length; i++) {
+            if (karakter[i] <= 5) {
+                return false;
+            }
+        }
+
+        if (karakter[0] < 6 || karakter[1] < 6 || karakter[7] < 6) {
+            return false;
+        }
+
+        int average = 0;
+        for (int i = 0; i < karakter.length; i++) {
+            average = average + karakter[i];
+        }
+        average = average / karakter.length;
+        if (average < 6) {
+            return false;
+        }
+        return true;
     }
 }
