@@ -27,6 +27,34 @@ public class Opgave16 {
 
         testOutput(true, output);
 
+
+        // Test hvor eleven ikke består den sidste eksamen
+        // Input: karakterer = {13, 13, 13, 13, 13, 13, 13, 5}
+        // Forventet output: output = false
+
+        // Opstil input
+        karakter = new int[]{13, 13, 13, 13, 13, 13, 13, 5};
+
+        // Generer output
+        output = bestaaet(karakter);
+
+
+        testOutput(false, output);
+
+
+        // Test hvor eleven lige har højt nok gennemsnit
+        // Input: karakterer = {6, 6, 6, 6, 6, 6, 6, 6}
+        // Forventet output: output = true
+
+        // Opstil input
+        karakter = new int[]{6, 6, 6, 6, 6, 6, 6, 6};
+
+        // Generer output
+        output = bestaaet(karakter);
+
+
+        testOutput(true, output);
+
     }
 
     static void testOutput(boolean forventetOutput, boolean faktiskOutput) {
