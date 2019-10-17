@@ -20,7 +20,7 @@ public class Exercise2 {
         // Lav variabel til sum. Den er long fordi opgaven kræver det.
         long sum = 0;
 
-        // Loopet vil addere det sidste cifre fra n og så fjerne det indtil n er 0.
+        // Loopet vil addere det sidste cifre fra n til sum og så fjerne det indtil n er 0.
         while (n > 0) {
             sum = sum + n % 10;
             n = n / 10;
