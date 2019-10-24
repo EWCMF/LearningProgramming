@@ -23,6 +23,10 @@ public class Opgave4 {
     }
 
     static int faculty(int num) {
-        return 0;
+        int result = num;
+        for (int i = num - 1; i >= 1; i--) {
+            result = result * i;
+        }
+        return result;
     }
 }
