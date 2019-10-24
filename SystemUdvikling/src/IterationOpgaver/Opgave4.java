@@ -13,6 +13,19 @@ public class Opgave4 {
         int output = faculty(num);
 
         testOutput(24, output);
+
+
+        // Test med 12.
+        // Input: num = 12.
+        // Forventet output: output = 479001600.
+
+        // Opstil input
+        num = 12;
+
+        // Generer output
+        output = faculty(num);
+
+        testOutput(479001600, output);
     }
 
     static void testOutput(int forventetOutput, int faktiskOutput) {
