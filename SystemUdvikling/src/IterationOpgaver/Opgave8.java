@@ -10,6 +10,14 @@ public class Opgave8 {
 
         testOutput(12, output);
 
+
+        minimum = 10;
+        maximum = 20;
+
+        output = ligeOgUlige(minimum, maximum);
+
+        testOutput(15, output);
+
     }
 
     static void testOutput(int forventetOutput, int faktiskOutput) {
