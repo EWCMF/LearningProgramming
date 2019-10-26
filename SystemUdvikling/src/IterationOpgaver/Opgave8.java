@@ -37,7 +37,6 @@ public class Opgave8 {
                 antal++;
             }
         }
-        int gennemsnit = lige / antal;
-        return gennemsnit;
+        return lige / antal;
     }
 }
