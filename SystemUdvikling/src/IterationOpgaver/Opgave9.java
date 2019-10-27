@@ -1,5 +1,7 @@
 package IterationOpgaver;
 
+import java.util.Arrays;
+
 public class Opgave9 {
     public static void main(String[] args) {
         // test med 5 tal i sekvensen
@@ -13,13 +15,35 @@ public class Opgave9 {
     }
 
     static void testOutput(int[] forventetOutput, int[] faktiskOutput) {
-        if (faktiskOutput.equals(forventetOutput))
+        if (Arrays.equals(forventetOutput, faktiskOutput))
             System.out.println("PASS");
-        else
+        else {
             System.out.println("FAIL");
+            for (int i = 0; i < faktiskOutput.length; i++) {
+                System.out.println(i + " ");
+            }
+        }
     }
 
     static int[] fibonacci(int x) {
-        return new int[0];
+        int[] numbers = {};
+        if (x == 1) {
+            numbers = Arrays.copyOf(numbers, 1);
+            numbers[0] = 1;
+        }
+        if (x == 2) {
+            numbers = Arrays.copyOf(numbers, 2);
+            numbers[0] = 1;
+            numbers[1] = 1;
+        }
+        if (x > 2) {
+            numbers = Arrays.copyOf(numbers, x);
+            numbers[0] = 1;
+            numbers[1] = 1;
+            for (int i = 2; i < x; i++) {
+                numbers[i] = numbers[i-1] + numbers[i-2];
+            }
+        }
+        return numbers;
     }
 }
