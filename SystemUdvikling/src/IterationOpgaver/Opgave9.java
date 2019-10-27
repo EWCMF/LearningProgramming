@@ -4,12 +4,21 @@ import java.util.Arrays;
 
 public class Opgave9 {
     public static void main(String[] args) {
-        // test med 5 tal i sekvensen
+        // Test med 5 tal i sekvensen
 
         int numbers = 5;
 
         int[] output = fibonacci(numbers);
         int[] expected = {1, 1, 2, 3, 5};
+
+        testOutput(expected, output);
+
+        // Test med 10 tal i sekvensen
+
+        numbers = 10;
+
+        output = fibonacci(numbers);
+        expected = new int[]{1, 1, 2, 3, 5, 8, 13, 21, 34, 55};
 
         testOutput(expected, output);
     }
