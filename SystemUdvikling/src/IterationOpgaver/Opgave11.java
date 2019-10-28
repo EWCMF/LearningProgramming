@@ -18,6 +18,14 @@ public class Opgave11 {
         output = erDetPrimtal(kandidat);
 
         testOutput(false, output);
+
+        // Kandidat er 77 som ikke primtal
+
+        kandidat = 77;
+
+        output = erDetPrimtal(kandidat);
+
+        testOutput(false, output);
     }
 
     static void testOutput(boolean forventetOutput, boolean faktiskOutput) {
