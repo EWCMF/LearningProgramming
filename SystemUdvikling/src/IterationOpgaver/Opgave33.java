@@ -19,6 +19,5 @@ public class Opgave33 {
                 T1[i+1]--;
             }
         }
-
     }
 }
