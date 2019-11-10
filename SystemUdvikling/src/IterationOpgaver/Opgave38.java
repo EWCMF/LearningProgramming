@@ -3,20 +3,20 @@ package IterationOpgaver;
 public class Opgave38 {
     public static void main(String[] args) {
         int antal = 0;
-        boolean[] primTal = new boolean[100];
+        boolean[] primtal = new boolean[100];
 
-        primTal[0] = false;
-        primTal[1] = false;
+        primtal[0] = false;
+        primtal[1] = false;
 
-        for (int i = 2; i < primTal.length; i++) {
-            primTal[i] = true;
+        for (int i = 2; i < primtal.length; i++) {
+            primtal[i] = true;
         }
 
-        for (int i = 0; i < primTal.length; i++) {
-            if (primTal[i]) {
+        for (int i = 0; i < primtal.length; i++) {
+            if (primtal[i]) {
                 antal++;
-                for (int j = 2*i; j < primTal.length; j+=i) {
-                    primTal[j] = false;
+                for (int j = 2*i; j < primtal.length; j+=i) {
+                    primtal[j] = false;
                 }
             }
         }
