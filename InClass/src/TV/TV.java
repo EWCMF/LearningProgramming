@@ -33,7 +33,7 @@ public class TV {
             channel = 1;
     }
 
-    public void channeldown() {
+    public void channelDown() {
         if (on && channel >= 1)
             channel--;
         else

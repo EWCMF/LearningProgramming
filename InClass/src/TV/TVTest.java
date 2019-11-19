@@ -49,12 +49,12 @@ public class TVTest extends TestCase {
         assertEquals(2, tv.channel);
     }
 
-    public void testChanneldown() {
+    public void testChannelDown() {
         TV tv = new TV();
 
         tv.turnOn();
         tv.setChannel(5);
-        tv.channeldown();
+        tv.channelDown();
 
         assertEquals(4, tv.channel);
     }
