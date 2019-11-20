@@ -54,4 +54,19 @@ public class ProgrammingExercise9Tests extends TestCase {
         System.out.println(stopWatch.getElapsedTime());
         assertEquals(4400, stopWatch.getElapsedTime(), 100);
     }
+
+    public void test7() {
+        Exercise7.Account account = new Exercise7.Account(1122, 20000);
+        Exercise7.Account.setAnnualInterestRate(4.5);
+
+        account.withdraw(2500);
+        account.deposit(3000);
+
+        System.out.println(account.getBalance());
+        System.out.println(account.getMonthlyInterest());
+        System.out.println(account.getDateCreated());
+
+        assertEquals(20500.0, account.getBalance());
+        assertEquals(76.875, account.getMonthlyInterest());
+    }
 }
