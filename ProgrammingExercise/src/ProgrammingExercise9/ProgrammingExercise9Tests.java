@@ -69,4 +69,23 @@ public class ProgrammingExercise9Tests extends TestCase {
         assertEquals(20500.0, account.getBalance());
         assertEquals(76.875, account.getMonthlyInterest());
     }
+
+    public void test8() {
+        Exercise8.Fan fan1 = new Exercise8.Fan();
+        fan1.setSpeed(fan1.FAST);
+        fan1.setColor("yellow");
+        fan1.setRadius(10);
+        fan1.setOn(true);
+
+        System.out.println(fan1.toString());
+
+        Exercise8.Fan fan2 = new Exercise8.Fan();
+        fan2.setSpeed(fan2.MEDIUM);
+        fan2.setRadius(5);
+
+        System.out.println(fan2.toString());
+
+        assertEquals(true, fan1.isOn());
+        assertFalse(fan2.isOn());
+    }
 }
