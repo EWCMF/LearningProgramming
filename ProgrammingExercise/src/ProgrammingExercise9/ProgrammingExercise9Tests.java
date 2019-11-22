@@ -88,4 +88,21 @@ public class ProgrammingExercise9Tests extends TestCase {
         assertEquals(true, fan1.isOn());
         assertFalse(fan2.isOn());
     }
+
+    public void test9() {
+        Exercise9.RegularPolygon p1 = new Exercise9.RegularPolygon();
+        Exercise9.RegularPolygon p2 = new Exercise9.RegularPolygon(6, 4);
+        Exercise9.RegularPolygon p3 = new Exercise9.RegularPolygon(10, 4, 5.6, 7.8);
+
+        System.out.println(p1.getPerimeter());
+        System.out.println(p1.getArea());
+        System.out.println("\n" + p2.getPerimeter());
+        System.out.println(p2.getArea());
+        System.out.println("\n" + p3.getPerimeter());
+        System.out.println(p3.getArea());
+
+        assertEquals(3.0, p1.getPerimeter());
+        assertEquals(24.0, p2.getPerimeter());
+        assertEquals(40.0, p3.getPerimeter());
+    }
 }
