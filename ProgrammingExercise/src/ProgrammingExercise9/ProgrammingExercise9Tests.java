@@ -2,8 +2,6 @@ package ProgrammingExercise9;
 
 import junit.framework.TestCase;
 
-import java.util.Scanner;
-
 public class ProgrammingExercise9Tests extends TestCase {
     public void test1() {
         Exercise1.Rectangle r1 = new Exercise1.Rectangle(4, 40);
