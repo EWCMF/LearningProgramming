@@ -1,6 +1,8 @@
 package ProgrammingExercise10;
 
-public class Exercise3 {
+import junit.framework.TestCase;
+
+public class Exercise3 extends TestCase {
     static class MyInteger {
         private int value;
 
@@ -30,15 +32,15 @@ public class Exercise3 {
             return true;
         }
 
-        boolean isEven(int value) {
+        static boolean isEven(int value) {
             return value % 2 == 0;
         }
 
-        boolean isOdd(int value) {
-            return value % 2 == 0;
+        static boolean isOdd(int value) {
+            return value % 2 != 0;
         }
 
-        boolean isPrime(int value) {
+        static boolean isPrime(int value) {
             if (value % 2 == 0)
                 return false;
             for (int i = 3; i * i <= value; i += 2) {
@@ -53,7 +55,7 @@ public class Exercise3 {
         }
 
         static boolean isOdd(MyInteger myInteger) {
-            return myInteger.value % 2 == 0;
+            return myInteger.value % 2 != 0;
         }
 
         static boolean isPrime(MyInteger myInteger) {
@@ -82,4 +84,34 @@ public class Exercise3 {
             return Integer.parseInt(string);
         }
     }
+
+    public void testMyIntegerClass() {
+        MyInteger myInteger0 = new MyInteger(1);
+
+        assertFalse(myInteger0.isEven());
+        assertTrue(myInteger0.isOdd());
+
+        MyInteger myInteger1 = new MyInteger(7);
+
+        assertEquals(7, myInteger1.getValue());
+        assertTrue(myInteger1.isPrime());
+
+        assertTrue(MyInteger.isEven(2));
+        assertFalse(MyInteger.isOdd(4));
+        assertFalse(MyInteger.isPrime(6));
+
+        assertTrue(MyInteger.isEven(new MyInteger(6)));
+        assertTrue(MyInteger.isOdd(new MyInteger(5)));
+        assertTrue(MyInteger.isPrime(new MyInteger(7)));
+
+        assertTrue(myInteger1.equals(7));
+        assertTrue(myInteger0.equals(new MyInteger(1)));
+
+        int charTest = MyInteger.parseInt(new char[] {'1', '2', '3'});
+        assertEquals(123, charTest);
+
+        int stringTest = MyInteger.parseInt("123");
+        assertEquals(123, stringTest);
+    }
+
 }
