@@ -80,7 +80,7 @@ public class Exercise7 {
             boolean correctID = false;
             int id = -1;
             while (!correctID) {
-                System.out.print("Enter an ID ");
+                System.out.print("Enter an ID: ");
                 id = scanner.nextInt();
 
                 if (id < 0 || id >= accounts.length) {
@@ -96,7 +96,7 @@ public class Exercise7 {
                 System.out.println("2: withdraw");
                 System.out.println("3: deposit");
                 System.out.println("4: exit");
-                System.out.print("Enter a choice ");
+                System.out.print("Enter a choice: ");
 
                 int choice = scanner.nextInt();
                 switch (choice) {
@@ -105,14 +105,14 @@ public class Exercise7 {
                         System.out.println();
                         break;
                     case 2:
-                        System.out.print("Enter an amount to withdraw ");
+                        System.out.print("Enter an amount to withdraw: ");
                         int withdrawAmount = 0;
                         withdrawAmount = scanner.nextInt();
                         accounts[id].balance -= withdrawAmount;
                         System.out.println();
                         break;
                     case 3:
-                        System.out.print("Enter an amount to deposit ");
+                        System.out.print("Enter an amount to deposit: ");
                         int depositAmount = 0;
                         depositAmount = scanner.nextInt();
                         accounts[id].balance += depositAmount;
