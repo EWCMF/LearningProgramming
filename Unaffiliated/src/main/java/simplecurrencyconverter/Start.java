@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class Start extends Application {
 
 
     @Override
@@ -16,11 +16,6 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
     }
-
-//    public static void main(String[] args) throws IOException {
-//        JsonNode jsonNode = new ObjectMapper().readTree(new URL("https://api.exchangeratesapi.io/latest"));
-//        System.out.println(jsonNode.get("base"));
-//    }
 
     public static void main(String[] args) {
         Application.launch(args);
