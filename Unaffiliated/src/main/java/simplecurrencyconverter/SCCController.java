@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.net.URL;
@@ -17,6 +18,9 @@ public class SCCController {
 
     @FXML
     private Label inputLabel, resultLabel, exchangeLabel;
+
+    @FXML
+    private TextField inputTextField;
 
     public void initialize() {
         inputLabel.setVisible(false);
@@ -33,7 +37,33 @@ public class SCCController {
     }
 
     public void convert() throws IOException {
-        JsonNode root = new ObjectMapper().readTree(new URL("https://api.exchangeratesapi.io/latest"));
-        System.out.println(root.path("rates").path("DKK").asDouble());
+        String base = getCurrencyCode(fromChoiceBox);
+        JsonNode root = new ObjectMapper().readTree(new URL("https://api.exchangeratesapi.io/latest?base=" + base));
+        String fromCurrency = getCurrencyCode(fromChoiceBox);
+        String toCurrency = getCurrencyCode(toChoiceBox);
+        double inputValue = Double.parseDouble(inputTextField.getText());
+        inputLabel.setVisible(true);
+        inputLabel.setText(String.format("%.2f", inputValue) + " " + fromCurrency);
+        double exchangeRate = root.path("rates").path(toCurrency).asDouble();
+        double result = inputValue * exchangeRate;
+        resultLabel.setText(String.format("%.2f", result) + " " + toCurrency);
+        resultLabel.setVisible(true);
+        exchangeLabel.setText(String.format("%.5f", exchangeRate));
+        exchangeLabel.setVisible(true);
+    }
+
+    private String getCurrencyCode(ChoiceBox<String> choiceBox) {
+        String currency = choiceBox.getValue();
+        switch (currency) {
+            case "Danish Kroner":
+                return "DKK";
+            case "US Dollar":
+                return "USD";
+            case "Euro":
+                return "EUR";
+            case "Japanese Yen":
+                return "JPY";
+        }
+        return null;
     }
 }
