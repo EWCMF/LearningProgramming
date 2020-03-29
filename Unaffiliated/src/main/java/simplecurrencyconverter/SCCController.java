@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.LinkedList;
@@ -37,17 +36,34 @@ public class SCCController {
     }
 
     public void convert() throws IOException {
-        String base = getCurrencyCode(fromChoiceBox);
-        JsonNode root = new ObjectMapper().readTree(new URL("https://api.exchangeratesapi.io/latest?base=" + base));
+        if (fromChoiceBox.getValue().equals("") || toChoiceBox.getValue().equals("") || inputTextField.getText().equals("")) {
+            return;
+        }
+        String failSafe = inputTextField.getText();
+        if (inputTextField.getText().contains(",")) {
+            failSafe = inputTextField.getText().replaceAll(",", ".");
+        }
+        double inputValue;
+        try {
+            inputValue = Double.parseDouble(failSafe);
+        } catch (NumberFormatException e) {
+            return;
+        }
+
         String fromCurrency = getCurrencyCode(fromChoiceBox);
         String toCurrency = getCurrencyCode(toChoiceBox);
-        double inputValue = Double.parseDouble(inputTextField.getText());
+
+        JsonNode root = new ObjectMapper().readTree(new URL("https://api.exchangeratesapi.io/latest?base=" + fromCurrency));
+
         inputLabel.setVisible(true);
         inputLabel.setText(String.format("%.2f", inputValue) + " " + fromCurrency);
+
         double exchangeRate = root.path("rates").path(toCurrency).asDouble();
         double result = inputValue * exchangeRate;
+
         resultLabel.setText(String.format("%.2f", result) + " " + toCurrency);
         resultLabel.setVisible(true);
+
         exchangeLabel.setText(String.format("%.5f", exchangeRate));
         exchangeLabel.setVisible(true);
     }
