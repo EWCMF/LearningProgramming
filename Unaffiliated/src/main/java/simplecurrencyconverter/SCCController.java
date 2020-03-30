@@ -3,15 +3,27 @@ package simplecurrencyconverter;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
 
 public class SCCController {
+    private double xOffset;
+    private double yOffset;
+
     @FXML
     private ChoiceBox<String> fromChoiceBox, toChoiceBox;
 
@@ -36,7 +48,17 @@ public class SCCController {
     }
 
     public void convert() throws IOException {
-        if (fromChoiceBox.getValue().equals("") || toChoiceBox.getValue().equals("") || inputTextField.getText().equals("")) {
+        Stage parent = (Stage) inputLabel.getScene().getWindow();
+        if (fromChoiceBox.getValue() == null || toChoiceBox.getValue() == null) {
+            errorMessage("Choose a currency in both boxes.", parent);
+            return;
+        }
+        if (fromChoiceBox.getValue().equals(toChoiceBox.getValue())) {
+            errorMessage("The selected currencies cannot be the same.", parent);
+            return;
+        }
+        if (inputTextField.getText().equals("")) {
+            errorMessage("Type a number in the input field.", parent);
             return;
         }
         String failSafe = inputTextField.getText();
@@ -47,6 +69,7 @@ public class SCCController {
         try {
             inputValue = Double.parseDouble(failSafe);
         } catch (NumberFormatException e) {
+            errorMessage("Only numbers are allowed in the input field.", parent);
             return;
         }
 
@@ -81,5 +104,37 @@ public class SCCController {
                 return "JPY";
         }
         return null;
+    }
+
+    private void errorMessage(String message, Stage parent) {
+        Label label = new Label(message);
+        label.setPadding(new Insets(32));
+        Button button = new Button();
+        button.setText("Ok");
+        button.setOnAction(event -> {
+            Stage stage = (Stage) button.getScene().getWindow();
+            stage.close();
+        });
+        Stage stage = new Stage();
+        VBox vBox = new VBox(label, button);
+        vBox.setStyle("-fx-border-color: black;" + "-fx-background-color: GhostWhite");
+
+        vBox.setAlignment(Pos.CENTER);
+        vBox.setOnMousePressed(mouseEvent -> {
+            xOffset = mouseEvent.getSceneX();
+            yOffset = mouseEvent.getSceneY();
+        });
+        vBox.setOnMouseDragged(mouseEvent -> {
+            stage.setX(mouseEvent.getScreenX() - xOffset);
+            stage.setY(mouseEvent.getScreenY() - yOffset);
+        });
+        Scene scene = new Scene(vBox, 400, 150);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setX(parent.getX() + 50);
+        stage.setY(parent.getY() + 50);
+        stage.show();
     }
 }
