@@ -9,6 +9,13 @@ package ProgrammingExercise18;
 
 public class Exercise4 {
     public static void main(String[] args) {
+        System.out.println(getC(9, 4));
+    }
 
+    private static int getC(int n, int p) {
+        if (p == 0 || p == n) {
+            return 1;
+        }
+        return getC(n - 1, p - 1) + getC(n-1, p);
     }
 }
